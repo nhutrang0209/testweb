@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload and Display HTML File</title>
+</head>
+<body>
+    <h1>Upload and Display HTML File</h1>
+
+    <h3>Upload File</h3>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <h3>HTML Files</h3>
+    <ul>
+        {% for filename in filenames %}
+        <li><a href="{{ url_for('view_html', filename=filename) }}">{{ filename }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
